@@ -40,6 +40,21 @@ the original application checksums and expected instruction bytes, applies the p
 the application and S-record checksums, and reads the output back to verify the result.
 It only supports the stock 1.5.1970 input.
 
+## GitHub releases
+
+Ordinary pushes and pull requests build the patcher and upload a workflow artifact.
+Pushing a tag starting with `v` also creates a GitHub Release after the build passes:
+
+```sh
+git tag -a v1.5.1972 -m "Firmware 1.5.1972"
+git push origin v1.5.1972
+```
+
+The release includes both prepared patched firmware images, `SHA256SUMS.txt`, and
+`MyoFirmwarePatch.zip`. The patcher ZIP requires the .NET 8 runtime; run it with
+`dotnet MyoFirmwarePatch.dll <input.hex> <output.hex>` after extraction.
+The checksum list covers the repository firmware images, not the patcher ZIP.
+
 ## Installing and recovering
 
 For USB installation, connect the armband, copy the chosen S-record image onto its USB drive,

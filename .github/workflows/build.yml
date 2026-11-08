@@ -1,4 +1,4 @@
-name: Build and verify firmware patch
+name: Build patcher and publish release
 on:
   push:
   pull_request:
@@ -21,3 +21,32 @@ jobs:
         with:
           name: myo-firmware-and-patcher
           path: artifacts/
+  release:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: myo-firmware-and-patcher
+          path: artifacts/
+      - name: Package portable patcher
+        run: |
+          cd artifacts/patcher
+          zip -r ../MyoFirmwarePatch.zip .
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$RELEASE_TAG" \
+            --verify-tag \
+            --title "$RELEASE_TAG" \
+            --generate-notes \
+            artifacts/MyoFirmwarePatch.zip \
+            patched/*.hex \
+            SHA256SUMS.txt

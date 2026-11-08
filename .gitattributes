@@ -1,0 +1,6 @@
+*.hex -text
+*.bin -text
+*.i64 -text
+*.cs text eol=crlf
+*.md text eol=lf
+*.yml text eol=lf

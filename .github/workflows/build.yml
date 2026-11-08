@@ -1,0 +1,23 @@
+name: Build and verify firmware patch
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Build patcher
+        run: dotnet build tools/firmware_patch/MyoFirmwarePatch.csproj -c Release
+      - name: Publish portable patcher
+        run: dotnet publish tools/firmware_patch -c Release --no-self-contained -o artifacts/patcher
+      - uses: actions/upload-artifact@v4
+        with:
+          name: myo-firmware-and-patcher
+          path: artifacts/

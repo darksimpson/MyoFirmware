@@ -1,0 +1,10 @@
+e51876e375d4f00cfb132d5c4885149859a2ddee7bede2294ffc53073a1132ab  original/myo-firmware-1.1.5-revd.hex
+5e91108d3f76337e39779e4e1fd652af2f80808d2c3037932acbb1be125a5d7b  original/myo-firmware-1.1.755-revd.hex
+e6ad520c2cd66f2bb3a5a61671c6d4ef0b47bec1a90f1a1b2e15523bd6a73a09  original/myo-firmware-1.2.1261-revd.hex
+8b38470a64d8d291166e0820976a6fc98c4f403df5bf7c350f3ce6d314755c15  original/myo-firmware-1.2.955-revd.hex
+5d0816a630085d4a26603f66438d25512d10084233a4b0f6b783e1894eef2698  original/myo-firmware-1.3.1448.hex
+abb4da469a335266d6cb371c073569917d36dbd5852d74862567df10a6eb3c95  original/myo-firmware-1.4.1670.hex
+a9b6f9103d89cc32f6d834f2caa4c5cc0fb52617301cd735692b1438afba3f67  original/myo-firmware-1.5.1931.hex
+d1fc3a06a1188b90db70f0b886fedd99c7de094174a03a0931701268e7767e17  original/myo-firmware-1.5.1970.hex
+c08e9b8950bc8aaa035ee8f39dc1fa00d45e161d637a6099783c3466fd1b1e56  patched/myo-firmware-1.5.1971-histfix.hex
+cee7d7402ec52493f631709f1e6e86d1c75a937c2c92164cc2f726d9463481f9  patched/myo-firmware-1.5.1972-histfix-nosync.hex
